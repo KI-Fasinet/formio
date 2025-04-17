@@ -46,6 +46,13 @@ RUN apk del git
 #   DEBUG=formio:db (see index.js for more)
 #   DEBUG=formio:*
 ENV DEBUG=""
+# Fix: NODE_CONFIG zwingend setzen, damit Form.io nicht auf localhost zurückfällt
+ENV NODE_CONFIG='{
+  "mongo": "mongodb://mongo-formio:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8@wwc0skwoos0cowgcw400gkoo:27017/?directConnection=true&tls=true&tlsCAFile=/etc/mongo/certs/ca.pem@mongo-ce:27017/formio-ce",
+  "port": 3001,
+  "jwt": { "secret": "v/fBiz4hQDmbH8kM2EO9I/k4kjwYJvvMeKpkfZJDDmY="}
+}'
+
 
 # This will initialize the application based on
 # some questions to the user (login email, password, etc.)
