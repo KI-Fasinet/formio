@@ -17,6 +17,13 @@ COPY default-template.json /app/
 
 WORKDIR /app
 
+# Install build-tools für bcrypt/node-gyp
+RUN apk update && apk add --no-cache \
+	python3 \
+	make \
+	g++ \
+	git
+
 # "bcrypt" requires python/make/g++, all must be installed in alpine
 # (note: using pinned versions to ensure immutable build environment)
 RUN apk update && \
