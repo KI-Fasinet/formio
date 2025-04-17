@@ -6,8 +6,9 @@ services:
     volumes:
       - "./data/db:/data/db"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME
-      - MONGO_INITDB_ROOT_PASSWOR
+      - MONGO_INITDB_ROOT_USERNAME:mongo-formio
+      - MONGO_INITDB_ROOT_PASSWORD:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8
+      - MONGO_INITDB_DATABASE:formio-ce
     networks:
       - formio-ce
   formio-ce:
