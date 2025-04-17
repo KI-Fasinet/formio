@@ -1,6 +1,8 @@
 version: "3.8"
 
+
 services:
+
   mongo-ce:
     image: mongo:6.0
     container_name: formio-mongo-ce
@@ -13,6 +15,8 @@ services:
       MONGO_INITDB_DATABASE: formio-ce
     networks:
       - formio-ce
+
+
   formio-ce:
     image: formio/formio:rc
     container_name: formio-ce
@@ -22,17 +26,13 @@ services:
     ports:
       - "3001:3001"
     environment:
-      DEBUG: formio:*
-      ROOT_EMAIL: admin@example.com
-      ROOT_PASSWORD: CHANGEME
       MONGO: mongodb://mongo-formio:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8@mongo-ce:27017/formio-ce
       PORT: 3001
       JWT_SECRET: v/fBiz4hQDmbH8kM2EO9I/k4kjWYJvvMeKpkfZJDDmY=
-
     networks:
       - formio-ce
-    depends_on:
-      - mongo-ce
+
+
 networks:
   formio-ce:
     driver: bridge
