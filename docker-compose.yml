@@ -8,16 +8,17 @@ services:
     volumes:
       - "./data/db:/data/db"
     environment:
-      MONGO_INITDB_ROOT_USERNAME:mongo-formio
-      MONGO_INITDB_ROOT_PASSWORD:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8
-      MONGO_INITDB_DATABASE:formio-ce
+      MONGO_INITDB_ROOT_USERNAME: mongo-formio
+      MONGO_INITDB_ROOT_PASSWORD: cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8
+      MONGO_INITDB_DATABASE: formio-ce
     networks:
       - formio-ce
   formio-ce:
     image: formio/formio:rc
     container_name: formio-ce
     restart: always
-    depends_on: mongo-ce
+    depends_on: 
+      - mongo-ce
     ports:
       - "3001:3001"
     environment:
