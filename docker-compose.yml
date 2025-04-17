@@ -15,6 +15,7 @@ services:
     image: formio/formio:rc
     container_name: formio-ce
     restart: always
+    depends_on: mongo-ce
     ports:
       - "3001:3001"
     environment:
@@ -23,10 +24,10 @@ services:
       ROOT_PASSWORD: CHANGEME
       NODE_CONFIG: |
         {
-          "mongo": "mongodb://mongo-ce:27017/formio-ce",
+          "mongo": "mongodb://mongo-formio:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8@mongo-ce:27017/formio-ce",
           "port": 3001,
           "jwt": {
-            "secret": "CHANGEME"
+            "secret": "JWT_SECRET_v/fBiz4hQDmbH8kM2EO9I/k4kjWYJvvMeKpkfZJDDmY="
           }
         }
     networks:
