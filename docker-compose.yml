@@ -2,15 +2,15 @@ version: "3.8"
 
 services:
   mongo-ce:
-    image: mongo 6.0
+    image: mongo:6.0
     container_name: formio-mongo-ce
     restart: unless-stopped
     volumes:
       - "./data/db:/data/db"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME:mongo-formio
-      - MONGO_INITDB_ROOT_PASSWORD:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8
-      - MONGO_INITDB_DATABASE:formio-ce
+      MONGO_INITDB_ROOT_USERNAME:mongo-formio
+      MONGO_INITDB_ROOT_PASSWORD:cGm92ow0nyfMv0WhFPkep4A5vYKEvpUhgYfn2vKfdlwN5tNGrewU2oSpJHa66Mf8
+      MONGO_INITDB_DATABASE:formio-ce
     networks:
       - formio-ce
   formio-ce:
