@@ -28,7 +28,7 @@ services:
     environment:
       MONGO: mongodb://••••••••••:••••••••••@mongo-ce:27017/formio-ce
       PORT: 3001
-      JWT_SECRET: v/fBiz4hQDmbH8kM2EO9I/k4kjWYJvvMeKpkfZJDDmY=
+      JWT_SECRET: ••••••••••
     networks:
       - formio-ce
 
