@@ -86,7 +86,8 @@ module.exports = {
       "providerOptions": {
         "params": {
           "autocompleteOptions": {},
-          "key": "AIzaSyAb3phWudYkltC-MTdqoxlYRqKQ1BJYvVw"
+          "key": process.env.GOOGLE_API_KEY
+"
         }
       },
       "input": true,
